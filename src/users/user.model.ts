@@ -1,30 +1,42 @@
-import * as mongoose from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export const UserSchema = new mongoose.Schema({
-  email: { type: String, required: true },
-  username: { type: String, required: true },
-  password: { type: String, required: true },
-  fullname: { type: String },
-  password_change: { type: String },
-  is_active: { type: Boolean },
-  usergroup: { type: String },
-  designation: { type: String },
-  gender: { type: String },
-  pilot_user: { type: Boolean },
-  age: { type: Number },
-});
+export type UserDocument = User & Document;
 
-export interface User {
-  _id: string;
-  email:string;
+@Schema()
+export class User {
+  @Prop({ required: true })
+  lan_id: string;
+
+  @Prop({ required: true })
   fullname: string;
+
+  @Prop({ required: true })
   username: string;
+
+  @Prop({ required: true })
+  email: string;
+
+  @Prop({ required: true })
   password: string;
-  password_change:boolean;
-  is_active:boolean;
-  usergroup:string;
-  designation:string;
-  gender:string;
-  pilot_user:boolean;
-  age:number
+
+  @Prop({ required: true })
+  password_change: boolean;
+  
+  @Prop({ required: true })
+ is_active: boolean;
+
+ @Prop({ required: true })
+  usergroup: string;
+
+  @Prop({ required: true })
+  pilot_user: boolean;
+
+  @Prop()
+  created_at: Date;
+
+  @Prop()
+  updated_at: Date;
 }
+
+export const UserSchema = SchemaFactory.createForClass(User);

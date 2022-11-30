@@ -34,6 +34,7 @@
     "argon2": "^0.30.2",
     "bcrypt": "^5.1.0",
     "class-validator": "^0.13.2",
+    "joi": "^17.7.0",
     "mongoose": "6.2.2",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",

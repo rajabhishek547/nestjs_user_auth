@@ -5,6 +5,9 @@ export type UserDocument = HydratedDocument<User>;
 
 @Schema()
 export class User {
+  @Prop()
+  name: string;
+
  @Prop()
   fullname: string;
 
@@ -17,9 +20,6 @@ export class User {
   @Prop()
   password: string;
 
-  @Prop()
-  refreshToken: string;
-
  @Prop()
   password_change: boolean;
   
@@ -30,16 +30,7 @@ export class User {
   usergroup: string;
 
  @Prop()
-  designation: string;
-
- @Prop()
-  gender: string;
-
- @Prop()
   pilot_user: boolean;
-
-  @Prop()
-  age: number;
 
   @Prop()
   created_at: Date;
